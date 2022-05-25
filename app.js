@@ -16,43 +16,57 @@
 // import {db} from './firebaseconfig'
 
 /////////code starts here///////////////
-const newTodoButton = document.querySelector('.new-todos-button');
-const todosModalContainer = document.querySelector('.todos-modal-container');
+//import the functions that I wrote in separate files
+import submitDew from "./functions/submitDew.js";
+import getDews from "./functions/getDews.js";
+const newDewsButton = document.querySelector(".new-dews-button");
+const dewsModalContainer = document.querySelector(".dews-modal-container");
+const submitDewButton = document.querySelector(".submit-dew-button");
+const dewTitle = document.querySelector(".dew-title");
+const dewDescription = document.querySelector(".dew-description");
+const dewNotes = document.querySelector(".dew-notes");
 
-//getTodosFromFirebase() {
- //get todos from Firebase
- //call renderTodos() using that data
+function getDewsAndRender() {
+  getDews();
+  //  call renderDews() using that data
+}
+
+getDewsAndRender();
+
+//renderDews(arraygoeshere) {
+//takes an array as parameter and renders it to the screen
+//create a div to hold each dew's content
+//create a data-id to keep track of each dew
+//create a checkbox for complete/incomplete status for each dew
+//create an edit button for each dew
+//create a delete button for each dew
 // }
 
-//renderTodos(arraygoeshere) {
-  //takes an array as parameter and renders it to the screen
-  //create a div to hold each todo's content
-  //create a data-id to keep track of each todo
-  //create a checkbox for complete/incomplete status for each todo
-  //create an edit button for each todo
-  //create a delete button for each todo
-// }
-
-newTodoButton.addEventListener("click", () => {
+newDewsButton.addEventListener("click", () => {
   //show a modal with form inputs when clicked
-  todosModalContainer.classList.add('show')
+  dewsModalContainer.classList.add("show");
 });
 
-//editTodoModal.addEventListener("click", (e) => {
-  //show an edit todo modal when edit todo is clicked
+//editDewModal.addEventListener("click", (e) => {
+//show an edit dew modal when edit dew is clicked
 //});
 
-//submitTodo.addEventListener("click", (e) => {
+submitDewButton.addEventListener("click", (e) => {
   //send the input values from the form (including a unique Firebase ID!) to Firebase when form is submitted
+
+  //this is necessary to prevent the form's default behavior so we can send data to Firebase
+  e.preventDefault();
+  //this function takes the parameters title, description, notes. We will get the values from the form and run the function with these arguments.
+  submitDew(dewTitle.value, dewDescription.value, dewNotes.value);
+  dewsModalContainer.classList.remove("show");
+});
+
+//editDewButton.addEventListener("click", (e) => {
+//send the updated dew to Firebase when form is submitted
+//getdewsFromFirebase()
 //});
 
-//editTodo.addEventListener("click", (e) => {
-  //send the updated todo to Firebase when form is submitted
-  //getTodosFromFirebase()
+//deletedewButton.addEventListener("click", (e) => {
+//delete the dew from from Firebase when clicked
+//getdewsFromFirebase()
 //});
-
-//deleteTodo.addEventListener("click", (e) => {
-  //delete the todo from from Firebase when clicked
-  //getTodosFromFirebase()
-//});
-
