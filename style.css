@@ -1,8 +1,8 @@
-.todos-modal-container {
+.dews-modal-container {
   display: none;
 }
 
-.show {
+.dews-modal-container.show {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +14,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.todos-modal {
+.dews-modal {
   width: 20rem;
   height: 35rem;
   text-align: center;

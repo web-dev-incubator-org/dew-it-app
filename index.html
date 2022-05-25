@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>todo</title>
+    <title>dew-it</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./style.css" />
@@ -12,31 +12,31 @@
     <nav class="top-nav">
       <div class="logo">dew it</div>
     </nav>
-      <button class="new-todos-button">New Todo</button>
-      <div class="main-todos-container"></div>
-      <div class="todos-modal-container">
-        <div class="todos-modal">
+      <button class="new-dews-button">New Dew</button>
+      <div class="main-dews-container"></div>
+      <div class="dews-modal-container">
+        <div class="dews-modal">
           <div class="form-container">
-            <form id="todos-form" spellcheck="false">
+            <form id="dews-form" spellcheck="false">
               <div class="title-container">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" maxlength="40" />
+                <input type="text" class="dew-title" name="title" maxlength="40" />
               </div>
               <div class="description-container">
                 <label for="description">Description</label>
                 <input
                   type="text"
-                  id="description"
+                  class="dew-description"
                   name="description"
                   maxlength="40"
                 />
               </div>
               <div class="notes-container">
                 <label for="notes">Notes</label>
-                <textarea id="notes" name="notes"></textarea>
+                <textarea class="dew-notes" name="notes"></textarea>
               </div>
-              <div class="submit-todo-container">
-                <button id="submit-todo" type="submit">Submit</button>
+              <div class="submit-dew-container">
+                <button class="submit-dew-button" type="submit">Submit</button>
               </div>
             </form>
           </div>
@@ -47,6 +47,6 @@
         </div>
       </div>
     </div>
-    <script src="app.js"></script>
+    <script src="./app.js" type="module"></script>
   </body>
 </html>
