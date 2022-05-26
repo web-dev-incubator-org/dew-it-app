@@ -21,6 +21,7 @@ import submitDew from "./functions/submitDew.js";
 import getDews from "./functions/getDews.js";
 const newDewsButton = document.querySelector(".new-dews-button");
 const dewsModalContainer = document.querySelector(".dews-modal-container");
+const closeNewDews = document.querySelector(".close-new-dew");
 const submitDewButton = document.querySelector(".submit-dew-button");
 const dewTitle = document.querySelector(".dew-title");
 const dewDescription = document.querySelector(".dew-description");
@@ -46,6 +47,10 @@ newDewsButton.addEventListener("click", () => {
   //show a modal with form inputs when clicked
   dewsModalContainer.classList.add("show");
 });
+
+closeNewDews.addEventListener("click"), () => {
+  dewsModalContainer.classList.remove("show");
+}
 
 //editDewModal.addEventListener("click", (e) => {
 //show an edit dew modal when edit dew is clicked
