@@ -15,8 +15,12 @@ export default async function getDews() {
   const dewsRef = collection(db, "dews");
   //this is the query function that gets the dews and orders them by Timestamp, oldest to newest
   const querySnapshot = await getDocs(query(dewsRef, orderBy("createdAt")));
+  // const dews = [];
   //console.log each dew
-  querySnapshot.forEach((doc) => {
+   querySnapshot.forEach((doc) => {
+      // dews.push({ ...doc.data(), id: doc.id });
+    //  console.log(dews)
     console.log(doc.data());
   });
+  
 }

@@ -20,6 +20,8 @@
 import submitDew from "./functions/submitDew.js";
 import getDews from "./functions/getDews.js";
 const newDewsButton = document.querySelector(".new-dews-button");
+const mainDewsContainer = document.querySelector(".main-dews-container");
+const dewsTitleContainer = document.querySelector(".dew-title-container");
 const dewsModalContainer = document.querySelector(".dews-modal-container");
 const closeNewDews = document.getElementsByClassName("close")[0];
 const submitDewButton = document.querySelector(".submit-dew-button");
@@ -27,15 +29,30 @@ const dewTitle = document.querySelector(".dew-title");
 const dewDescription = document.querySelector(".dew-description");
 const dewNotes = document.querySelector(".dew-notes");
 
-function getDewsAndRender() {
-  getDews();
-  //  call renderDews() using that data
- 
-
+async function getDewsAndRender() {
+  await getDews();
+  renderDews();
 }
 
 
-getDewsAndRender();
+
+function renderDews(dewsArray) {   
+      dewsArray.forEach((element) => {
+      const dewDisplay = document.createElement('div');
+       dewDisplay.setAttribute("data-id", element.id.toString());
+       mainDewsContainer.appendChild(dewDisplay);
+       const dewDataTitle = document.createElement('h1');
+       dewDataTitle.innerHTML = element.title;
+      dewDisplay.appendChild(dewDataTitle);
+     })
+    }
+
+ 
+
+  getDewsAndRender();
+
+
+
 
 
 //renderDews(arraygoeshere) {
