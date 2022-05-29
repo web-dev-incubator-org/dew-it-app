@@ -2,9 +2,7 @@
 //The entire app will run from this file///
 //Your job is to write the code to fill this App//
 //Your code should be written in a separate .js file and then imported into this one to keep things neat//
-//Keep in mind you have to import the firebase functions you need into your file to use them. You must install firebase with npm to use these functions. If you don't know how to do this, ask.
 //If you have questions about anything, ask
-
 //these are some of the basic necessities you may need to interact with firebase
 // import {
 //   collection,
