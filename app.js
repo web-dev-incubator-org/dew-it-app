@@ -29,6 +29,11 @@ const dewTitle = document.querySelector(".dew-title");
 const dewDescription = document.querySelector(".dew-description");
 const dewNotes = document.querySelector(".dew-notes");
 
+//created an iife that runs every time the app loads. Put things that need to run on the initial load in here
+const initApp = (() => {
+  getDewsAndRender();
+})()
+
 async function getDewsAndRender() {
   getDews().then((dews) => {
     renderDews(dews);
