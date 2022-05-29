@@ -19,6 +19,7 @@
 //import the functions that I wrote in separate files
 import submitDew from "./functions/submitDew.js";
 import getDews from "./functions/getDews.js";
+import deleteDewFromFb from "./functions/deleteDewFromFb.js";
 import createDisplay from "./functions/createDom.js";
 const newDewsButton = document.querySelector(".new-dews-button");
 const mainDewsContainer = document.querySelector(".main-dews-container");
@@ -45,7 +46,7 @@ function getDewsAndRender() {
 function renderDews(dewsArray) {
   //this while loop is necessary because we need to clear the dews from the page on every render. Without this, every time we call this render function, we will just add more dom elements on top of what's already there.
   while (mainDewsContainer.firstChild) {
-    (mainDewsContainer).removeChild(mainDewsContainer.firstChild);
+    mainDewsContainer.removeChild(mainDewsContainer.firstChild);
   }
   dewsArray.forEach((element) => {
     //extract dom creation to separate file and import it in
@@ -68,7 +69,7 @@ newDewsButton.addEventListener("click", () => {
 
 closeNewDews.addEventListener("click", () => {
   dewsModalContainer.classList.remove("show");
-  dewForm.reset()
+  dewForm.reset();
 });
 
 //editDewModal.addEventListener("click", (event) => {
@@ -84,7 +85,7 @@ submitDewButton.addEventListener("click", (event) => {
   submitDew(dewTitle.value, dewDescription.value, dewNotes.value);
   dewsModalContainer.classList.remove("show");
   getDewsAndRender();
-  dewForm.reset()
+  dewForm.reset();
 });
 
 //editDewButton.addEventListener("click", (event) => {
@@ -92,7 +93,22 @@ submitDewButton.addEventListener("click", (event) => {
 //getDewsAndRender();
 //});
 
-//deletedewButton.addEventListener("click", (event) => {
-//delete the dew from from Firebase when clicked
-//getDewsAndRender();
-//});
+//place an event listener on the entire container and use an if statement to target delete buttons. Can add other features that require event listeners in here as well.
+mainDewsContainer.addEventListener("click", (event) => {
+  event.preventDefault();
+  //store clicked DOM dew in const
+  const dewParent = event.target.closest(".dew-display");
+  //store clicked DOM data-id in const
+  const dataId = dewParent.dataset.id;
+
+  const deleteDew = (() => {
+    if (event.target.className === "delete-dew-button") {
+      // delete the dew from Firebase when clicked using dom data-id
+      deleteDewFromFb(dataId);
+      // delete the dew from DOM
+      dewParent.remove();
+      //render updated state
+      getDewsAndRender();
+    }
+  })();
+});
