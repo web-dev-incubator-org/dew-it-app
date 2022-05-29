@@ -5,7 +5,7 @@ import {
   getDocs,
   query,
   orderBy,
-} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
 //import the database instance
 import { db } from "../firebaseconfig.js";
 

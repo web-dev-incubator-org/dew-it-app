@@ -8,12 +8,12 @@
 //these are some of the basic necessities you may need to interact with firebase
 // import {
 //   collection,
-//   addDoc,
+//   setDoc,
 //   deleteDoc,
 //   getDocs,
 //   updateDoc,
 // } from "firebase/firestore";
-// import {db} from './firebaseconfig'
+// import {db} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js'
 
 /////////code starts here///////////////
 //import the functions that I wrote in separate files
