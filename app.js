@@ -22,7 +22,6 @@ import getDews from "./functions/getDews.js";
 import createDisplay from "./functions/createDom.js";
 const newDewsButton = document.querySelector(".new-dews-button");
 const mainDewsContainer = document.querySelector(".main-dews-container");
-const dewsTitleContainer = document.querySelector(".dew-title-container");
 const dewsModalContainer = document.querySelector(".dews-modal-container");
 const closeNewDews = document.getElementsByClassName("close")[0];
 const submitDewButton = document.querySelector(".submit-dew-button");
@@ -41,9 +40,14 @@ function getDewsAndRender() {
     renderDews(dews);
   });
 }
-//auto formatted with Prettier. I highly recommend getting this extension if using vscode.
+//auto formatted with Prettier. I highly recommend getting this extension if using vscode
 function renderDews(dewsArray) {
+  //this while loop is necessary because we need to clear the dews from the page on every render. Without this, every time we call this render function, we will just add more dom elements on top of what's already there.
+  while (mainDewsContainer.firstChild) {
+    (mainDewsContainer).removeChild(mainDewsContainer.firstChild);
+  }
   dewsArray.forEach((element) => {
+    //extract dom creation to separate file and import it in
     createDisplay(element);
   });
 }
