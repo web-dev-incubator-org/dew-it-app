@@ -19,6 +19,7 @@
 //import the functions that I wrote in separate files
 import submitDew from "./functions/submitDew.js";
 import getDews from "./functions/getDews.js";
+import createDisplay from "./functions/createDom.js";
 const newDewsButton = document.querySelector(".new-dews-button");
 const mainDewsContainer = document.querySelector(".main-dews-container");
 const dewsTitleContainer = document.querySelector(".dew-title-container");
@@ -43,12 +44,7 @@ function getDewsAndRender() {
 //auto formatted with Prettier. I highly recommend getting this extension if using vscode.
 function renderDews(dewsArray) {
   dewsArray.forEach((element) => {
-    const dewDisplay = document.createElement("div");
-    dewDisplay.setAttribute("data-id", element.id.toString());
-    mainDewsContainer.appendChild(dewDisplay);
-    const dewDataTitle = document.createElement("h1");
-    dewDataTitle.innerHTML = element.title;
-    dewDisplay.appendChild(dewDataTitle);
+    createDisplay(element);
   });
 }
 //renderDews(arraygoeshere) {
