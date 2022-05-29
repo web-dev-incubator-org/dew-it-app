@@ -3,7 +3,7 @@
 import {
   collection,
   doc,
-  addDoc,
+  setDoc,
   serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
 //import the database instance
@@ -15,8 +15,8 @@ export default async function submitDew(title, description, notes) {
   const docRef = doc(collection(db, "dews"));
   //this is called a try/catch block. It will "try" the code you want to run. If there is an error it will be stored in an error object and the "catch" block will run. If there are no errors it will be skipped.
   try {
-    //addDoc is a firebase function that allows us to add documents to the database
-    await addDoc(collection(db, "dews"), {
+    //setDoc is a firebase function that allows us to add documents to the database
+    await setDoc(docRef, {
       title,
       description,
       notes,
