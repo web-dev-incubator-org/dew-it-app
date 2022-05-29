@@ -30,8 +30,9 @@ const dewDescription = document.querySelector(".dew-description");
 const dewNotes = document.querySelector(".dew-notes");
 
 async function getDewsAndRender() {
-  await getDews();
-  renderDews();
+  getDews().then((dews) => {
+    renderDews(dews);
+  });
 }
 
 
