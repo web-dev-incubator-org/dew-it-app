@@ -69,26 +69,26 @@ closeNewDews.addEventListener("click", () => {
   dewsModalContainer.classList.remove("show");
 });
 
-//editDewModal.addEventListener("click", (e) => {
+//editDewModal.addEventListener("click", (event) => {
 //show an edit dew modal when edit dew is clicked
 //});
 
-submitDewButton.addEventListener("click", (e) => {
+submitDewButton.addEventListener("click", (event) => {
   //send the input values from the form (including a unique Firebase ID!) to Firebase when form is submitted
 
   //this is necessary to prevent the form's default behavior so we can send data to Firebase
-  e.preventDefault();
+  event.preventDefault();
   //this function takes the parameters title, description, notes. We will get the values from the form and run the function with these arguments.
   submitDew(dewTitle.value, dewDescription.value, dewNotes.value);
   dewsModalContainer.classList.remove("show");
 });
 
-//editDewButton.addEventListener("click", (e) => {
+//editDewButton.addEventListener("click", (event) => {
 //send the updated dew to Firebase when form is submitted
 //getdewsFromFirebase()
 //});
 
-//deletedewButton.addEventListener("click", (e) => {
+//deletedewButton.addEventListener("click", (event) => {
 //delete the dew from from Firebase when clicked
 //getdewsFromFirebase()
 //});
