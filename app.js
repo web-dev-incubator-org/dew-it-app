@@ -32,7 +32,7 @@ const dewNotes = document.querySelector(".dew-notes");
 //created an iife that runs every time the app loads. Put things that need to run on the initial load in here
 const initApp = (() => {
   getDewsAndRender();
-})()
+})();
 
 //remove async because this is promise syntax
 function getDewsAndRender() {
@@ -40,28 +40,17 @@ function getDewsAndRender() {
     renderDews(dews);
   });
 }
-
-
-
-function renderDews(dewsArray) {   
-      dewsArray.forEach((element) => {
-      const dewDisplay = document.createElement('div');
-       dewDisplay.setAttribute("data-id", element.id.toString());
-       mainDewsContainer.appendChild(dewDisplay);
-       const dewDataTitle = document.createElement('h1');
-       dewDataTitle.innerHTML = element.title;
-      dewDisplay.appendChild(dewDataTitle);
-     })
-    }
-
- 
-
-  getDewsAndRender();
-
-
-
-
-
+//auto formatted with Prettier. I highly recommend getting this extension if using vscode.
+function renderDews(dewsArray) {
+  dewsArray.forEach((element) => {
+    const dewDisplay = document.createElement("div");
+    dewDisplay.setAttribute("data-id", element.id.toString());
+    mainDewsContainer.appendChild(dewDisplay);
+    const dewDataTitle = document.createElement("h1");
+    dewDataTitle.innerHTML = element.title;
+    dewDisplay.appendChild(dewDataTitle);
+  });
+}
 //renderDews(arraygoeshere) {
 //takes an array as parameter and renders it to the screen
 //create a div to hold each dew's content
@@ -78,11 +67,7 @@ newDewsButton.addEventListener("click", () => {
 
 closeNewDews.addEventListener("click", () => {
   dewsModalContainer.classList.remove("show");
-})
-
-
-
-
+});
 
 //editDewModal.addEventListener("click", (e) => {
 //show an edit dew modal when edit dew is clicked
