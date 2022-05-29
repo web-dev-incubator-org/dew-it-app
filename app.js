@@ -34,7 +34,8 @@ const initApp = (() => {
   getDewsAndRender();
 })()
 
-async function getDewsAndRender() {
+//remove async because this is promise syntax
+function getDewsAndRender() {
   getDews().then((dews) => {
     renderDews(dews);
   });
