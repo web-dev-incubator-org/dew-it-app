@@ -28,6 +28,7 @@ const submitDewButton = document.querySelector(".submit-dew-button");
 const dewTitle = document.querySelector(".dew-title");
 const dewDescription = document.querySelector(".dew-description");
 const dewNotes = document.querySelector(".dew-notes");
+const dewForm = document.querySelector(".dew-form");
 
 //created an iife that runs every time the app loads. Put things that need to run on the initial load in here
 const initApp = (() => {
@@ -67,6 +68,7 @@ newDewsButton.addEventListener("click", () => {
 
 closeNewDews.addEventListener("click", () => {
   dewsModalContainer.classList.remove("show");
+  dewForm.reset()
 });
 
 //editDewModal.addEventListener("click", (event) => {
@@ -81,14 +83,16 @@ submitDewButton.addEventListener("click", (event) => {
   //this function takes the parameters title, description, notes. We will get the values from the form and run the function with these arguments.
   submitDew(dewTitle.value, dewDescription.value, dewNotes.value);
   dewsModalContainer.classList.remove("show");
+  getDewsAndRender();
+  dewForm.reset()
 });
 
 //editDewButton.addEventListener("click", (event) => {
 //send the updated dew to Firebase when form is submitted
-//getdewsFromFirebase()
+//getDewsAndRender();
 //});
 
 //deletedewButton.addEventListener("click", (event) => {
 //delete the dew from from Firebase when clicked
-//getdewsFromFirebase()
+//getDewsAndRender();
 //});
