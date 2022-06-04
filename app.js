@@ -18,16 +18,25 @@
 import submitDew from "./functions/submitDew.js";
 import getDews from "./functions/getDews.js";
 import deleteDewFromFb from "./functions/deleteDewFromFb.js";
+import editDew from "./functions/editDew.js";
 import createDisplay from "./functions/createDom.js";
 const newDewsButton = document.querySelector(".new-dews-button");
+
 const mainDewsContainer = document.querySelector(".main-dews-container");
 const dewsModalContainer = document.querySelector(".dews-modal-container");
+const editDewsModalContainer = document.querySelector(".edit-dews-modal-container");
 const closeNewDews = document.getElementsByClassName("close")[0];
 const submitDewButton = document.querySelector(".submit-dew-button");
+const editDewSubmitButton = document.querySelector(".edit-dew-submit-button");
 const dewTitle = document.querySelector(".dew-title");
 const dewDescription = document.querySelector(".dew-description");
 const dewNotes = document.querySelector(".dew-notes");
 const dewForm = document.querySelector(".dew-form");
+
+const editDewTitle = document.querySelector(".edit-dew-title");
+const editDewDescription = document.querySelector(".edit-dew-description");
+const editDewNotes = document.querySelector(".edit-dew-notes");
+const editDewForm = document.querySelector(".edit-dew-form");
 
 //created an iife that runs every time the app loads. Put things that need to run on the initial load in here
 const initApp = (() => {
@@ -66,13 +75,16 @@ newDewsButton.addEventListener("click", () => {
 });
 
 closeNewDews.addEventListener("click", () => {
+  editDewsModalContainer.classList.remove("show");
   dewsModalContainer.classList.remove("show");
+  
   dewForm.reset();
 });
 
-//editDewModal.addEventListener("click", (event) => {
-//show an edit dew modal when edit dew is clicked
-//});
+// DewButton.addEventListener("click", () => {
+// //show an edit dew modal when edit dew is clicked
+// dewsModalContainer.classList.add("show");
+// });
 
 submitDewButton.addEventListener("click", (event) => {
   //send the input values from the form (including a unique Firebase ID!) to Firebase when form is submitted
@@ -91,6 +103,9 @@ submitDewButton.addEventListener("click", (event) => {
 //getDewsAndRender();
 //});
 
+ 
+
+
 //place an event listener on the entire container and use an if statement to target delete buttons. Can add other features that require event listeners in here as well.
 mainDewsContainer.addEventListener("click", (event) => {
   event.preventDefault();
@@ -99,14 +114,37 @@ mainDewsContainer.addEventListener("click", (event) => {
   //store clicked DOM data-id in const
   const dataId = dewParent.dataset.id;
 
+
   const deleteDew = (() => {
     if (event.target.className === "delete-dew-button") {
+      event.preventDefault();
       // delete the dew from Firebase when clicked using dom data-id
-      deleteDewFromFb(dataId);
+     deleteDewFromFb(dataId);
+      
       // delete the dew from DOM
       dewParent.remove();
       //render updated state
       getDewsAndRender();
     }
   })();
+
+  const editDewFunction = (() => {
+    if (event.target.className === "edit-dew-button") {
+      editDewsModalContainer.classList.add("show");
+      
+      editDewSubmitButton.addEventListener("click", (event) => {
+      event.preventDefault();
+        
+       console.log(dataId);
+        editDew(dataId, 
+          editDewTitle.value, 
+          editDewDescription.value, 
+          editDewNotes.value )
+        editDewsModalContainer.classList.remove("show");
+        getDewsAndRender();
+        dewForm.reset();
+      });
+    }
+  })();  
 });
+

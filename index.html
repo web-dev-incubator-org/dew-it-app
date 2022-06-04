@@ -16,6 +16,7 @@
       <button class="new-dews-button">New Dew</button>
       <div class="main-dews-container">
       </div>
+      <button id="button">Test</button>
       <div class="dews-modal-container">
         <div class="dews-modal">
           <div class="form-container">
@@ -40,6 +41,35 @@
               </div>
               <div class="submit-dew-container">
                 <button class="submit-dew-button" type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="edit-dews-modal-container">
+        <div class="dews-modal">
+          <div class="form-container">
+            <form class="edit-dew-form" spellcheck="false">
+              <div class="title-container">
+                <label for="title">Title</label>
+                <input type="text" class="edit-dew-title" name="title" maxlength="40" />
+                <span class="close">&times;</span>
+              </div>
+              <div class="description-container">
+                <label for="description">Description</label>
+                <input
+                  type="text"
+                  class="edit-dew-description"
+                  name="description"
+                  maxlength="40"
+                />
+              </div>
+              <div class="notes-container">
+                <label for="notes">Notes</label>
+                <textarea class="edit-dew-notes" name="notes"></textarea>
+              </div>
+              <div class="submit-dew-container">
+                <button class="edit-dew-submit-button" type="submit">Submit</button>
               </div>
             </form>
           </div>
