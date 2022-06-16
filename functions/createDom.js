@@ -12,17 +12,31 @@ export default function createDisplay(element) {
     dewDisplay.appendChild(dewDataTitle);
   })();
 
-  const createDeleteButton = (() => {
-    const dewDeleteButton = document.createElement('button');
-    dewDeleteButton.setAttribute('class', 'delete-dew-button');
-    dewDeleteButton.textContent = 'Delete';
-    dewDisplay.appendChild(dewDeleteButton);
+  const createDescription = (() => {
+    const dewDataDescription = document.createElement('p');
+    dewDataDescription.textContent = element.description;
+    dewDisplay.appendChild(dewDataDescription);
+  })();
+
+  const createNotes = (() => {
+    const dewDataNotes = document.createElement('p');
+    dewDataNotes.textContent = element.notes;
+    dewDisplay.appendChild(dewDataNotes);
   })();
 
   const createEditButton = (() => {
     const dewEditButton = document.createElement('button');
-    dewEditButton.setAttribute('class', 'edit-dew-button');
+    dewEditButton.setAttribute('class', 'edit-dew-button dew-buttons');
     dewEditButton.textContent = 'Edit';
     dewDisplay.appendChild(dewEditButton);
   })();
+
+
+  const createDeleteButton = (() => {
+    const dewDeleteButton = document.createElement('button');
+    dewDeleteButton.setAttribute('class', 'delete-dew-button dew-buttons');
+    dewDeleteButton.textContent = 'Delete';
+    dewDisplay.appendChild(dewDeleteButton);
+  })();
 }
+  

@@ -1,5 +1,21 @@
+body {
+  text-align: center;
+  background-color: black;
+}
+
 .dews-modal-container {
   display: none;
+}
+
+.main-dews-container {
+  text-align: left;
+  margin: 40px 25px;
+}
+
+.dew-display {
+  color: white;
+  border: solid;
+  padding: 5px;
 }
 
 .dews-modal-container.show {
@@ -12,6 +28,7 @@
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .edit-dews-modal-container {
@@ -40,3 +57,50 @@
   text-align: left;
   gap: 0.5rem;
 }
+
+
+/* Buttons-----------------------------------*/
+
+.new-dews-button {
+  position: absolute;
+  left: 30px;
+  background-color: #09703C;
+  color: white;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  width: 140px;
+  height: 40px;
+}
+
+.new-dews-button:hover {
+  transition: 0.5s;
+  background-color: #94C73E;
+}
+
+.edit-dew-button {
+  background-color: #09703C;
+  color: white;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  width: 140px;
+  height: 40px;
+}
+
+.edit-dew-button:hover {
+  transition: 0.5s;
+  background-color: #94C73E;
+}
+
+.delete-dew-button {
+  position: relative;
+  right: 35px;
+  background-color: #E92531;
+  color: white;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  width: 140px;
+  height: 40px;
+}
+
+.delete-dew-button:hover {
+  transition: 0.5s;
+  background-color: hsl(356, 54%, 75%);
+}
+
